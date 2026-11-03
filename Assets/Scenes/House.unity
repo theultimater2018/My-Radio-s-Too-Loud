@@ -440,6 +440,7 @@ GameObject:
   - component: {fileID: 1716418240}
   - component: {fileID: 1716418241}
   - component: {fileID: 1716418242}
+  - component: {fileID: 1716418243}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -526,7 +527,7 @@ CharacterController:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -555,7 +556,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
   moveInput: {x: 0, y: 0}
-  cameraInput: 0
+  speed: 10
+  cameraInput: {x: 0, y: 0}
+  playerCamera: {fileID: 0}
 --- !u!114 &1716418242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,11 +600,54 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 0ce4686d-9c0b-4939-8341-f6f85555b9bb
     m_ActionName: Movement/Move
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1716418241}
+        m_TargetAssemblyTypeName: Movement, Assembly-CSharp
+        m_MethodName: OnLook
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7b5a5492-c6ff-4d4f-95e2-be2c72107660
+    m_ActionName: 'Movement/Look[/Mouse/delta]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Movement
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!54 &1716418243
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716418235}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2079781900
 GameObject:
   m_ObjectHideFlags: 0
