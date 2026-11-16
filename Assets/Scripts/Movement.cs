@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
     [Header("Camera")]
     [SerializeField] private Vector2 cameraInput;
     [SerializeField] private Transform playerCamera;
+    [SerializeField] private float sensitivity;
     public void OnMovement(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
@@ -38,7 +39,7 @@ public class Movement : MonoBehaviour
         // To not allow the player to look to high or too low.
         cameraInput.y = Mathf.Clamp(cameraInput.y, -1, 1);
 
-        transform.Rotate(Vector3.up * cameraInput.x);
+        transform.Rotate(Vector3.up * cameraInput.x * (sensitivity/100));
         // playerCamera.Rotate(cameraInput.y, 0f, 0f);
 
         Vector3 move = (transform.right * moveInput.x) + (transform.forward * moveInput.y);
