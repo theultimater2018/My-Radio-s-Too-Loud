@@ -14,8 +14,18 @@ public class AudioObjective : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void TurnOffObjective()
+    {
+        if (isActive == false)
+        {
+            if (audioSource.isPlaying != true)
+            {
+                audioSource.Stop();
+            }
+        }
+    }
+
+    private void TurnOnObjective()
     {
         if (isActive == true)
         {
@@ -24,13 +34,19 @@ public class AudioObjective : MonoBehaviour
                 audioSource.Play();
             }
         }
-        if (isActive == false)
-        {
-            if (audioSource.isPlaying != true)
-            {
-                audioSource.Stop();
-            }
+    }
 
-        }
+    private void OnEnable()
+    {
+        EventManager.onAudioInteract.AddListener(TurnOffObjective);
+    }
+    private void OnDisable()
+    {
+        EventManager.onAudioInteract.RemoveListener(TurnOffObjective);
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        TurnOnObjective();
     }
 }

@@ -23,6 +23,11 @@ public class Movement : MonoBehaviour
         cameraInput.y = -(context.ReadValue<Vector2>().y);
     }
 
+    private void Interact()
+    {
+        EventManager.onAudioInteract?.Invoke();
+    }
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -45,5 +50,8 @@ public class Movement : MonoBehaviour
         Vector3 move = (transform.right * moveInput.x) + (transform.forward * moveInput.y);
 
         controller.Move(move * speed * Time.deltaTime);
+
     }
+
+
 }
