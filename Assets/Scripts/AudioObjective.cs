@@ -2,51 +2,29 @@ using UnityEngine;
 
 public class AudioObjective : MonoBehaviour
 {
-    [SerializeField] private bool isActive;
     [SerializeField] private AudioSource audioSource;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (isActive != true)
-        {
-            isActive = true;
-        }
-    }
-
-    private void TurnOffObjective()
-    {
-        if (isActive == false)
-        {
-            if (audioSource.isPlaying != true)
-            {
-                audioSource.Stop();
-            }
-        }
+        TurnOnObjective();
     }
 
     private void TurnOnObjective()
     {
-        if (isActive == true)
+        if (audioSource.isPlaying != true)
         {
-            if (audioSource.isPlaying != true)
-            {
-                audioSource.Play();
-            }
+            audioSource.Play();
+            Debug.Log(audioSource + "has been turned on.");
         }
     }
 
-    private void OnEnable()
+    private void OnTriggerEnter(Collider other)
     {
-        EventManager.onAudioInteract.AddListener(TurnOffObjective);
-    }
-    private void OnDisable()
-    {
-        EventManager.onAudioInteract.RemoveListener(TurnOffObjective);
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        TurnOnObjective();
+        if (other.CompareTag("Player"))
+        {
+            EventManager.onNearObjective?.Invoke(audioSource);
+        }
+        //Play any voicelines/SFX for getting close to the item
     }
 }

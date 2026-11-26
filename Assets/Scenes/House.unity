@@ -1952,11 +1952,12 @@ GameObject:
   - component: {fileID: 1716418237}
   - component: {fileID: 1716418240}
   - component: {fileID: 1716418241}
+  - component: {fileID: 1716418244}
   - component: {fileID: 1716418242}
   - component: {fileID: 1716418243}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2023,7 +2024,7 @@ Transform:
   m_GameObject: {fileID: 1716418235}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.4, y: 0, z: -22}
+  m_LocalPosition: {x: 15.34, y: 0, z: -24.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2130,6 +2131,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 7b5a5492-c6ff-4d4f-95e2-be2c72107660
     m_ActionName: 'Movement/Look[/Mouse/delta]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1716418244}
+        m_TargetAssemblyTypeName: AudioSelector, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 224f82fc-710e-4041-8be4-0d391cd8f0c9
+    m_ActionName: 'Movement/Interact[/Keyboard/e]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Movement
@@ -2162,6 +2179,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1716418244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716418235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4688e5d849686bc468e3e15644ea3738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSelected: {fileID: 0}
 --- !u!1 &1845729792
 GameObject:
   m_ObjectHideFlags: 0
